@@ -1,0 +1,20 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>ModelName.cs</DefaultName>
+    <Name>FluentModelValidator</Name>
+    <Description>A basic Validator Class with a constructor for checking the constraints.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <TemplateGroupID>AspNetCore</TemplateGroupID>
+    <TemplateID>MyCustomTemplateID</TemplateID>
+    <AppliesTo>DotNetCoreRazor</AppliesTo>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.png</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">Data.cs</ProjectItem>
+    <CustomParameters>
+       <CustomParameter Name="$ModelName$" Value="$safeitemname$" />
+    </CustomParameters>
+  </TemplateContent>
+</VSTemplate>

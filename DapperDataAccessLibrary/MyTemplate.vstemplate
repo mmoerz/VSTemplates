@@ -1,0 +1,24 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>DapperDataAccessLibrary</Name>
+    <Description>A starter project for Dapper that includes basic load and save functionality.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>DapperDataAccessLibrary</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.png</Icon>
+    <PreviewImage>__PreviewImage.PNG</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="DataAccessLibrary.csproj" File="DataAccessLibrary.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="ISqlDataAccess.cs">ISqlDataAccess.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="SqlDataAccess.cs">SqlDataAccess.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

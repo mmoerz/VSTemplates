@@ -1,0 +1,14 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>DapperCRUDData.cs</DefaultName>
+    <Name>DapperCRUDData</Name>
+    <Description>A basic Data Class with create, retrieve, update and delete functionality.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.png</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">Data.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

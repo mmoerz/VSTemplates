@@ -6,9 +6,9 @@
     <UserSecretsId>360e64d2-87b6-4994-8c88-16c2ebf87523</UserSecretsId>
     <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows>
     <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsLinux>
-    <PackageIcon>DbDeploy.png</PackageIcon>
+    <PackageIcon>ressources\DbDeploy.png</PackageIcon>
     <PackageIconUrl />
-    <ApplicationIcon>DbDeploy.ico</ApplicationIcon>
+    <ApplicationIcon>ressources\DbDeploy.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(IsWindows)'=='true'">
     <DefineConstants>Windows</DefineConstants>
@@ -22,27 +22,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="appsettings.Development.json" />
-    <None Remove="appsettings.json" />
-    <None Remove="Migrations\0001 Create Schemas.sql" />
-    <None Remove="Migrations\0002 Create Lot Tables.sql" />
-    <None Remove="Migrations\0003 Create Table Address.sql" />
-    <None Remove="Migrations\0004 Create Table Entity.sql" />
-    <None Remove="Migrations\0005 Create Table Person.sql" />
-    <None Remove="Migrations\0006 Create Table LegalEntity.sql" />
-    <None Remove="Migrations\0007 Create Table YearCase.sql" />
-    <None Remove="Migrations\0008 Create Table Report.sql" />
-    <None Remove="Migrations\0009 Create Table ReportFile.sql" />
-    <None Remove="Migrations\0010 Create Table Substance.sql" />
-    <None Remove="Migrations\0011 Data.DrugPrecursor.sql" />
-    <None Remove="Migrations\0012 Data.Explosive.sql" />
-    <None Remove="Migrations\0013 Data.Measurement.sql" />
-    <None Remove="Migrations\0014 Data.MonitoredSubstance.sql" />
-    <None Remove="Migrations\0015 Data.Reporter.sql" />
-    <None Remove="Migrations\0016 Data.StatisticalCategory.sql" />
-    <None Remove="Migrations\0017 Data.StatusCategory.sql" />
-    <None Remove="Migrations\0018 Data.YearCaseNr.sql" />
-  </ItemGroup>
+      <None Remove="Migrations\0001 Create Schemas.sql" />
+      <None Remove="Migrations\0002 Create Tables.sql" />
+      <None Remove="Migrations\0003 Create Table name.sql" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Migrations\0001 Create Schemas.sql" />
+      <EmbeddedResource Include="Migrations\0002 Create Tables.sql" />
+      <EmbeddedResource Include="Migrations\0003 Create Table name.sql" />
+    </ItemGroup>
 
   <ItemGroup>
     <Content Include="appsettings.Development.json">
@@ -55,26 +44,6 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\0007 Create Table YearCase.sql" />
-    <EmbeddedResource Include="Migrations\0010 Create Table Substance.sql" />
-    <EmbeddedResource Include="Migrations\0009 Create Table ReportFile.sql" />
-    <EmbeddedResource Include="Migrations\0008 Create Table Report.sql" />
-    <EmbeddedResource Include="Migrations\0006 Create Table LegalEntity.sql" />
-    <EmbeddedResource Include="Migrations\0005 Create Table Person.sql" />
-    <EmbeddedResource Include="Migrations\0004 Create Table Entity.sql" />
-    <EmbeddedResource Include="Migrations\0003 Create Table Address.sql" />
-    <EmbeddedResource Include="Migrations\0002 Create LoT Tables.sql" />
-    <EmbeddedResource Include="Migrations\0001 Create Schemas.sql" />
-    <EmbeddedResource Include="Migrations\0011 Data.DrugPrecursor.sql" />
-    <EmbeddedResource Include="Migrations\0012 Data.Explosive.sql" />
-    <EmbeddedResource Include="Migrations\0013 Data.Measurement.sql" />
-    <EmbeddedResource Include="Migrations\0015 Data.Reporter.sql" />
-    <EmbeddedResource Include="Migrations\0016 Data.StatisticalCategory.sql" />
-    <EmbeddedResource Include="Migrations\0017 Data.StatusCategory.sql" />
-    <EmbeddedResource Include="Migrations\0018 Data.YearCaseNr.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -93,9 +62,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PostDeployment\0001 Functions\" />
-    <Folder Include="PostDeployment\0002 Procedures\" />
-    <Folder Include="PreDeployment\" />
+    <Folder Include="AdditionalPostDeployment\0001 Functions\" />
+    <Folder Include="AdditionalPostDeployment\0002 Procedures\" />
+    <Folder Include="AdditionalPreDeployment\" />
   </ItemGroup>
 
   <ItemGroup>

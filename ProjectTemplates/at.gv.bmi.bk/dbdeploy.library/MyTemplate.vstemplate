@@ -17,9 +17,10 @@
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <CreateInPlace>true</CreateInPlace>
     <Icon>__TemplateIcon.ico</Icon>
+    <Hidden>true</Hidden>
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="at.gv.bmi.bk.DAEMeldestelle.dbdeployLibrary.csproj" File="at.gv.bmi.bk.DAEMeldestelle.dbdeployLibrary.csproj" ReplaceParameters="true">
+    <Project TargetFileName="dbdeployLibrary.csproj" File="dbdeployLibrary.csproj" ReplaceParameters="true">
       <Folder Name="Migrations" TargetFolderName="Migrations">
         <ProjectItem ReplaceParameters="true" TargetFileName="0001 Create Schemas.sql">0001 Create Schemas.sql</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="0002 Create Tables.sql">0002 Create Tables.sql</ProjectItem>

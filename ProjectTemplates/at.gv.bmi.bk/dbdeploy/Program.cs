@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Data;
 using DbUp.Engine;
-using at.gv.bmi.bk.DAEMeldestelle.dbdeployLibrary;
+using $ext_safeprojectname$.dbdeploy.library;
 
 namespace $safeprojectname$
 {

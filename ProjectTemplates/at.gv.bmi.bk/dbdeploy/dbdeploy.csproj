@@ -68,7 +68,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\at.gv.bmi.bk.DAEMeldestelle.dbdeployLibrary\at.gv.bmi.bk.DAEMeldestelle.dbdeployLibrary.csproj" />
+    <ProjectReference Include="..\$ext_safeprojectname$.dbdeploy.library\$ext_safeprojectname$.dbdeploy.library.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>360e64d2-87b6-4994-8c88-16c2ebf87523</UserSecretsId>
+    <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows>
+    <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsLinux>
+    <PackageIcon>ressources\DbDeploy.png</PackageIcon>
+    <PackageIconUrl />
+    <ApplicationIcon>ressources\DbDeploy.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsWindows)'=='true'">
+    <DefineConstants>Windows</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsLinux)'=='true'">
+    <DefineConstants>Linux</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <None Remove="Migrations\0001 Create Schemas.sql" />
+      <None Remove="Migrations\0002 Create Tables.sql" />
+      <None Remove="Migrations\0003 Create Table name.sql" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Migrations\0001 Create Schemas.sql" />
+      <EmbeddedResource Include="Migrations\0002 Create Tables.sql" />
+      <EmbeddedResource Include="Migrations\0003 Create Table name.sql" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dbup-sqlserver" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Migrations\0014 Data.MonitoredSubstance.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AdditionalPostDeployment\0001 Functions\" />
+    <Folder Include="AdditionalPostDeployment\0002 Procedures\" />
+    <Folder Include="AdditionalPreDeployment\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\at.gv.bmi.bk.DAEMeldestelle.dbdeployLibrary\at.gv.bmi.bk.DAEMeldestelle.dbdeployLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ressources\DbDeploy.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Update="secrets.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

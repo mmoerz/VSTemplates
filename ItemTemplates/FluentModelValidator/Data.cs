@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLibrary
+namespace $safeprojectname$
 {
     public class $ModelName$Validator : AbstractValidator<$ModelName$Model>
     {

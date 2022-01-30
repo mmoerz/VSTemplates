@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLibrary
+namespace $safeprojectname$
 {
     public class $safeitemname$Repository
     {
@@ -22,11 +22,11 @@ namespace DataAccessLibrary
 						   
         public void Delete(Model data)
         {
-            _db.Execute(sqlDelete, data);
+            _db.Execute(_sqlDelete, data);
         }
 		public Task DeleteAsync(Model data)
         {
-            return _db.ExecuteAsync(sqlDelete, data);
+            return _db.ExecuteAsync(_sqlDelete, data);
         }
 
 		private const string _sqlGet =
@@ -46,11 +46,11 @@ namespace DataAccessLibrary
                VALUES ()";
         public int Insert(Model data)
         {
-            return _db.SaveData(_sqlInsert, data);
+            return _db.SaveDataWithIdentity(_sqlInsert, data);
         }
 		public Task<int> InsertAsync(Model data)
         {
-            return _db.SaveData(_sqlInsert, data);
+            return _db.SaveDataWithIdentityAsync(_sqlInsert, data);
         }
 
 		private const string _sqlUpdate =
@@ -63,7 +63,7 @@ namespace DataAccessLibrary
         }
 		public Task UpdateAsync(Model data)
         {
-            return _db.Execute(_sqlUpdate, data);
+            return _db.ExecuteAsync(_sqlUpdate, data);
         }
     }
 }

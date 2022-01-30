@@ -6,44 +6,64 @@ using System.Threading.Tasks;
 
 namespace DataAccessLibrary
 {
-    public class $safeitemname$Data
+    public class $safeitemname$Repository
     {
         private readonly ISqlDataAccess _db;
+		private const string _tablename = "[dbo].[]";
 
-        public $safeitemname$Data(ISqlDataAccess db)
+        public $safeitemname$Repository(ISqlDataAccess db)
         {
             _db = db;
         }
 
-        public Task Delete(Model data)
+		private const string _sqlDelete =
+		    @$"DELETE FROM {_tablename}
+               WHERE ";
+						   
+        public void Delete(Model data)
         {
-            string sql = @"DELETE FROM [dbo].[]
-                           WHERE ";
-
-            return _db.Execute(sql, data);
+            _db.Execute(sqlDelete, data);
+        }
+		public Task DeleteAsync(Model data)
+        {
+            return _db.ExecuteAsync(sqlDelete, data);
         }
 
-        public Task<List<Model>> Get()
+		private const string _sqlGet =
+			@"SELECT * FROM {_tablename}";
+        public List<Model> Get()
         {
-            string sql = @"SELECT * FROM [dbo].[]";
-
-            return _db.LoadData<Model, dynamic>(sql, new { });
+            return _db.LoadData<Model, dynamic>(_sqlGet, new { });
+        }
+		
+		public Task<List<Model>> GetAsync()
+        {
+            return _db.LoadDataAsync<Model, dynamic>(_sqlGet, new { });
         }
 
-        public Task Insert(Model data)
+		private const string _sqlInsert = 
+		    @$"INSERT INTO {_tablename} ()
+               VALUES ()";
+        public int Insert(Model data)
         {
-            string sql = @"INSERT INTO [dbo].[] ()
-                           VALUES ()";
-
-            return _db.SaveData(sql, data);
+            return _db.SaveData(_sqlInsert, data);
+        }
+		public Task<int> InsertAsync(Model data)
+        {
+            return _db.SaveData(_sqlInsert, data);
         }
 
-        public Task Update(Model data)
+		private const string _sqlUpdate =
+			@$"UPDATE {_tablename}
+			   SET 
+               WHERE ";
+        public void Update(Model data)
         {
-            string sql = @"UPDATE [dbo].[] SET 
-                           WHERE ";
-
-            return _db.Execute(sql, data);
+            _db.Execute(_sqlUpdate, data);
+        }
+		public Task UpdateAsync(Model data)
+        {
+            return _db.Execute(_sqlUpdate, data);
         }
     }
 }
